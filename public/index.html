@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="dark" />
+<title>Incident Timeline</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#view">Skip to content</a>
+
+<div class="app">
+  <header class="topbar">
+    <a class="topbar__brand" href="#" aria-label="Incident Timeline, go to dashboard">
+      <span class="topbar__mark" aria-hidden="true"></span>
+      <h1>Incident Timeline</h1>
+    </a>
+    <div class="topbar__actions" id="topbarActions"></div>
+  </header>
+
+  <div class="readonly-banner" id="banner" hidden>
+    You are viewing in read-only mode.
+    <button type="button" class="link-btn" data-top="login">Sign in</button> to create or update alerts.
+  </div>
+
+  <div class="readonly-banner pw-banner" id="pwBanner" hidden>
+    You are using a temporary or default password.
+    <button type="button" class="link-btn" data-top="password">Change it now</button>.
+  </div>
+
+  <main id="view" tabindex="-1">
+    <noscript><p class="muted-note">This dashboard needs JavaScript enabled.</p></noscript>
+  </main>
+</div>
+
+<div class="toast-region" id="toasts" aria-live="polite"></div>
+
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>

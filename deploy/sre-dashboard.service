@@ -1,0 +1,31 @@
+[Unit]
+Description=SRE Incident Timeline Dashboard
+After=network.target
+
+[Service]
+Type=simple
+# Adjust User/Group and WorkingDirectory to match where you copied the app
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/sre-dashboard
+ExecStart=/usr/bin/node --disable-warning=ExperimentalWarning server.js
+Restart=on-failure
+RestartSec=3
+
+Environment=PORT=80
+Environment=NODE_ENV=production
+# Optional settings live in this file (the "-" means it is fine if it does not exist):
+#   ADMIN_PASSWORD=choose-a-strong-one   # only used the FIRST time (default if unset: admin123, flagged for change)
+#   AUTO_HOLD_DAYS=3
+#   TRUST_PROXY=1                        # set when nginx / a load balancer sits in front
+#   COOKIE_SECURE=1                      # set when users reach the site over HTTPS
+#   SESSION_HOURS=168
+EnvironmentFile=-/etc/sre-dashboard/env
+
+# Lets the process bind to port 80 WITHOUT running as root.
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

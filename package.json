@@ -1,0 +1,14 @@
+{
+  "name": "sre-incident-dashboard",
+  "version": "2.0.0",
+  "description": "Internal incident timeline dashboard for SRE shift handoffs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/*.test.js\""
+  },
+  "engines": { "node": ">=22.5.0" },
+  "dependencies": {},
+  "license": "UNLICENSED",
+  "private": true
+}
